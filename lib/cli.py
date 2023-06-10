@@ -10,7 +10,8 @@ def display_clients():
     print("*** Client List ***")
     print("1) Display all clients")
     print("2) Search for client by name")
-    print("3) Go back to main menu")
+    print("3) Add a new cient")
+    print("4) Go back to main menu")
     choice = int(input("Enter your choice >>>"))
 
     if choice == 1:
@@ -28,6 +29,21 @@ def display_clients():
             print("No matching clients found.")
         print()
     elif choice == 3:
+        name = input("Enter client name>>>")
+        address = input ("Enter client address>>>")
+        phone = input ("Enter client phone>>>")
+        email = input ("Enter client email>>>")
+
+        new_client = Client(
+            name = name,
+            address = address,
+            phone = phone,
+            email = email
+        )
+        session.add(new_client)
+        session.commit()
+        print("Client successfully added!")
+    elif choice == 4:
         print("Returning to main menu...")
     else:
         print("Invalid choice. Please try again.\n")
@@ -70,6 +86,7 @@ def display_workers():
         print("Returning to main menu...")
     else:
         print ("Invalid choice. Please try again.\n")
+
 
 def display_work_orders():
     print("*** Work Order List ***")
