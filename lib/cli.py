@@ -18,7 +18,7 @@ def display_clients():
         clients = session.query(Client).all()
         for client in clients:
             print(client)
-        print()  # provides a line break
+        print()  
     elif choice == 2:
         searched_client = input("Enter client name>>>")
         clients = session.query(Client).filter(Client.name.like(f"%{searched_client}%")).all()
@@ -43,12 +43,12 @@ def display_clients():
         session.add(new_client)
         session.commit()
         print("Client successfully added!")
+        print()
     elif choice == 4:
         print("Returning to main menu...")
     else:
         print("Invalid choice. Please try again.\n")
 
-    
 
 def display_workers():
     print("*** Worker List ***")
