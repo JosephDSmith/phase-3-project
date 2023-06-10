@@ -74,14 +74,42 @@ def display_workers():
 def display_work_orders():
     print("*** Work Order List ***")
     print("1) Display all work orders")
-    print("2) Display all work orders for a client")
-    print("3) Display all workers for in a work order")
+    print("2) Display work orders for a client")
+    print("3) Display all workers in a work order")
     print("4) Display total cost of a work order")
     print("5) Go back to main menu")
-    work_orders = session.query(Work_Order).all()
-    for work_order in work_orders:
-        print(work_order)
-    print()
+    choice = int(input("Enter your choice >>>"))
+
+    if choice == 1: 
+        work_orders = session.query(Work_Order).all()
+        for work_order in work_orders:
+            print(work_order)
+        print()
+    elif choice == 2:
+        searched_client = input("Search by client id>>>")
+        work_orders = session.query(Work_Order).filter(Work_Order.client_id == searched_client).all()
+        for work_order in work_orders:
+            print(work_order)
+        print()
+    elif choice == 3:
+        searched_id = input("Enter work order id>>>")
+        workers = session.query(Worker).filter(Worker.work_order_id == searched_id)
+        for worker in workers:
+            print(worker)
+        print()
+    elif choice == 4:
+        searched_id = input("Enter work order id>>>")
+        total_hours_needed = session.query(Work_Order).filter(Work_Order.id == searched_id).first().total_hours_needed
+        workers = session.query(Worker).filter(Worker.work_order_id == searched_id)
+        pay = 0
+        for worker in workers:
+            pay += worker.hourly_pay * total_hours_needed
+        print(pay)
+        print()
+    elif choice == 5:
+        print("Returning to main menu...")
+    else:
+        print ("Invalid choice. Please try again.\n")
 
 def main():
     choice = 0
