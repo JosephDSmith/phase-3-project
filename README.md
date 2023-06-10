@@ -61,7 +61,7 @@ For any questions, please reach out to our support team.
 ## References
 
 This CLI was built using a tutorial by Bek Brace. Special thanks to him and his amazing channel!
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kTaqR1WyT8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=kTaqR1WyT8A
 
 ## Blog
 
