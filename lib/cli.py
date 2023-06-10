@@ -10,7 +10,7 @@ def display_clients():
     print("*** Client List ***")
     print("1) Display all clients")
     print("2) Search for client by name")
-    print("3) Add a new cient")
+    print("3) Add a new client")
     print("4) Go back to main menu")
     choice = int(input("Enter your choice >>>"))
 
