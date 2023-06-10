@@ -19,19 +19,22 @@ Adding Database Data: Users can add new workers to the system by providing their
 
 ## Key Models
 
-Worker:
+Worker: 
 
-Attributes: id, name, job, years_experience, hourly_pay, client_id, work_order_id
+Attributes: id, name, job, years experience, hourly pay, client id, work order id
+
 Relationships: Belongs to a client and a work order
 
 Client:
 
 Attributes: id, name, address, phone, email
+
 Relationships: Has one work order
 
 Work_Order:
 
-Attributes: id, job_request, location, number_of_employees_needed, total_hours_needed, client_id
+Attributes: id, job request, location, number of employees needed, total hours needed, client id
+
 Relationships: Belongs to a client, has multiple workers
 
 ## Key Functions
