@@ -5,27 +5,46 @@ Work Order Manager CLI - Phase 3 Project Assignment by Joseph D Smith
 
 # Description:  
 
-The Work Order Manager CLI is an interactive database program which allows work order 
+The Work-Order Manager CLI is a command-line application designed to manage clients, workers, and work orders for a temporary staffing agency. It provides a user-friendly interface to perform various operations related to client management, worker management, and work order management.
 
-## Usage Visuals
+## Features
 
-App features : 
+Client Management: Users can view all clients or search for a specific client by name. The application displays detailed information about clients, including their name, address, phone number, and email.
 
-- Navigate through the menu:
+Worker Management: Users can view all workers or search for a worker by name or job specialty. Workers can be sorted by hourly pay in ascending order. The application provides information about workers, such as their name, job, years of experience, and hourly pay.
 
-![Gif 1](https://github.com/JosephDSmith/phase-2-project/assets/122189576/5b78270d-be72-4325-a28c-3dbc9724d58b)
+Work Order Management: Users can view all work orders or search for work orders by client. They can also view all workers assigned to a specific work order and calculate the total cost of a work order based on the workers' hourly pay and total hours needed. Work orders contain details such as the job request, location, number of employees needed, and total hours needed.
 
-- Access and expand details for the bonsai collection:  
+Adding Database Data: Users can add new workers to the system by providing their name, address, phone, and email. This script can also be modified to add new workers and new work orders. 
 
-![Gif 2](https://github.com/JosephDSmith/phase-2-project/assets/122189576/3cc36478-0d1a-425c-b232-bb1b99c2884d)
+## Key Models
 
-- Edit an existing bonsai, or delete an existing bonsai from the collection.
+Worker:
 
-![Gif 3](https://github.com/JosephDSmith/phase-2-project/assets/122189576/d8169d44-f69f-4643-8b26-b16f1f71e717)
+Attributes: id, name, job, years_experience, hourly_pay, client_id, work_order_id
+Relationships: Belongs to a client and a work order
 
-- Add a bonsai to the collection:
+Client:
 
-![Gif 4](https://github.com/JosephDSmith/phase-2-project/assets/122189576/854e8d3e-bbea-45f0-8bd6-5bfcefb411e3)
+Attributes: id, name, address, phone, email
+Relationships: Has one work order
+
+Work_Order:
+
+Attributes: id, job_request, location, number_of_employees_needed, total_hours_needed, client_id
+Relationships: Belongs to a client, has multiple workers
+
+## Key Functions
+
+Display Clients: Retrieves and displays detailed information about clients stored in the database. Users can choose to view all clients or search for a specific client by name.
+
+Display Workers: Retrieves and displays detailed information about workers stored in the database. Users have multiple options to explore workers, including viewing all workers, searching workers by name, searching workers by specialty, and sorting workers by pay scale.
+
+Display Work Orders: Retrieves and displays detailed information about work orders stored in the database. Users can choose to view all work orders or explore specific work orders based on client or work order ID. Additionally, users can view all workers assigned to a particular work order and calculate the total cost of a work order.
+
+Add Client: Allows users to add a new client to the database by providing relevant details such as name, address, phone number, and email. The newly added client will be saved in the database for future reference.
+
+Main Menu: Serves as the main entry point of the CLI application. Users are presented with a menu where they can choose different options to interact with the application, such as accessing client information, worker information, work order information, or exiting the program.
 
 ## Contributing
 
@@ -41,7 +60,8 @@ For any questions, please reach out to our support team.
 
 ## References
 
-All images from pixabay.com - special thanks to Florist Transworld Delivery for the bonsai care information. 
+This CLI was built using a tutorial by Bek Brace. Special thanks to him and his amazing channel!
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kTaqR1WyT8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Blog
 
