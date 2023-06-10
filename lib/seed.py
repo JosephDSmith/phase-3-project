@@ -17,7 +17,22 @@ if __name__ == "__main__":
   
     fake = Faker()
 
-    temp_jobs = ["landscaper", "house cleaner", "janitor", "road worker", "receptionist", "general event staff", "delivery driver", "administrative assistant", "call center agent", "office clerk", "sign holder", "data analyst", "handyman"]
+    temp_jobs = {
+    "landscaper": "Landscaper",
+    "house cleaner": "House Cleaner",
+    "janitor": "Janitor",
+    "road worker": "Road Worker",
+    "receptionist": "Receptionist",
+    "general event staff": "General Event Staff",
+    "delivery driver": "Delivery Driver",
+    "administrative assistant": "Administrative Assistant",
+    "call center agent": "Call Center Agent",
+    "office clerk": "Office Clerk",
+    "sign holder": "Sign Holder",
+    "data analyst": "Data Analyst",
+    "handyman": "Handyman"
+}
+
 
     clients = []
     
@@ -37,7 +52,7 @@ if __name__ == "__main__":
 
     for client in clients:
         work_order = Work_Order(
-            job_request=random.choice(temp_jobs),
+            job_request=random.choice(list(temp_jobs.values())),
             location=fake.address(),
             number_of_employees_needed=random.randint(1, 10),
             total_hours_needed=random.randint(5, 8),

@@ -22,6 +22,7 @@ class Worker(Base):
     job = Column(String())
     years_experience = Column(Integer())
     hourly_pay = Column(Float())
+    client_id = Column(Integer(), ForeignKey('clients.id'))
     work_order_id = Column(Integer(), ForeignKey('work_orders.id'))
 
     def __repr__(self):

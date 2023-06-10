@@ -10,7 +10,7 @@ def display_clients():
     print("*** Client List ***")
     print("1) Display all clients")
     print("2) Search for client by name")
-    print("4) Go back to main menu")
+    print("3) Go back to main menu")
     choice = int(input("Enter your choice >>>"))
 
     if choice == 1:
@@ -19,7 +19,7 @@ def display_clients():
             print(client)
         print()  # provides a line break
     elif choice == 2:
-        searched_client = input("Enter client name: ")
+        searched_client = input("Enter client name>>>")
         clients = session.query(Client).filter(Client.name.like(f"%{searched_client}%")).all()
         if clients:
             for client in clients:
@@ -36,15 +36,48 @@ def display_clients():
 
 def display_workers():
     print("*** Worker List ***")
-    print("Display all workers")
-    print("")
-    workers = session.query(Worker).all()
-    for worker in workers:
-        print(worker)
-    print()
+    print("1) Display all workers")
+    print("2) Search for worker by name")
+    print("3) Search for worker by worker specialty")
+    print("4) Display all workers by payscale (low to high)")
+    print("5) Go back to main menu")
+    choice = int(input("Enter your choice >>>"))
+
+    if choice == 1:
+        workers = session.query(Worker).all()
+        for worker in workers:
+            print(worker)
+        print()
+    elif choice == 2:
+        searched_worker = input("Enter worker name>>>")
+        workers = session.query(Worker).filter(Worker.name.like(f"%{searched_worker}%")).all()
+        for worker in workers:
+            print(worker)
+        print()
+    elif choice == 3:
+        searched_specialty = input("Enter worker specialty>>>")
+        workers = session.query(Worker).filter(Worker.job.like(f"%{searched_specialty}%"))
+        for worker in workers:
+            print(worker)
+        print()
+    elif choice == 4:
+        workers = session.query(Worker).all()
+        workers_by_pay = sorted(workers, key=lambda w: w.hourly_pay)
+        for worker in workers_by_pay:
+            print(worker)
+        print()
+    elif choice == 5:
+        print("Returning to main menu...")
+    else:
+        print ("Invalid choice. Please try again.\n")
 
 def display_work_orders():
     print("*** Work Order List ***")
+    print("1) Display all work orders")
+    print("2) Display all work orders for a client")
+    print("3) Display all workers for in a work order")
+    print("4) Display total cost of a work order")
+    print("5) Go back to main menu")
     work_orders = session.query(Work_Order).all()
     for work_order in work_orders:
         print(work_order)
