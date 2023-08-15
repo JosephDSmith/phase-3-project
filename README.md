@@ -2,6 +2,16 @@
 
 Work Order Manager CLI - Phase 3 Project Assignment by Joseph D Smith 
 
+# How to use this application:
+
+1. Fork and clone this repository to your local device
+2. From the "lib" directory, run these two commands: "pipenv install" and "pipenv shell"
+3. From the "lib" directory, run these three commands: "alembic init migrations," "alembic revision --autogenerate -m "initial"
+", and "alembic upgrade head"
+4. From the "lib" directory, run this command: "python seed.py"
+5. From the "lib" directory, run this command to enter the CLI: python cli.py
+
+
 
 # Description:  
 
